@@ -1,0 +1,8 @@
+#Setup
+browser= chrome
+URL= http://automationexercise.com
+
+#Test Data
+Name= Hrigved
+Mail= Hrigved@gmail.com
+
