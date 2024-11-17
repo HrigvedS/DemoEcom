@@ -7,7 +7,6 @@
         <methods>
           <include name="setup"/>
           <include name="registerUser"/>
-          <include name="finish"/>
         </methods>
       </class> <!-- testCases.TestCases -->
     </classes>

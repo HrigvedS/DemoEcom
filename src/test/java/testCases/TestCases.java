@@ -60,10 +60,10 @@ public class TestCases {
 		driver.manage().window().maximize();
 		login = new LoginPage(driver);
 		}
-	@AfterTest
-	public void finish() {
-		driver.close();
-	}
+//	@AfterTest
+//	public void finish() {
+//		driver.close();
+//	}
 	
   @Test
   public void registerUser() throws InterruptedException, IOException {
@@ -81,9 +81,10 @@ public class TestCases {
 //4. Click on 'Signup / Login' button
 		login.LoginSignupButton();
 //5. Verify 'New User Signup!' is visible
-		String actialSignup= login.VerifySignUpPage();
+		String actualSignup= login.VerifySignUpPage();
 		String expectedSignup= "Login to your account";
-		Assert.assertEquals(actialSignup, expectedSignup, "we are in same page");
+		Assert.assertEquals(actualSignup, expectedSignup, "we are not in same page");
+
 //6. Enter name and email address
 		login.EnterName(prop.getProperty("Name"));
 		login.EnterEmail(prop.getProperty("Mail"));
@@ -93,13 +94,18 @@ public class TestCases {
 
 
 //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
+		String actualAccountPage= login.VerifyAccountPage();
+		String expectedAccountPage= "ENTER ACCOUNT INFORMATION";
+		Assert.assertEquals(actualAccountPage, expectedAccountPage, "we are not in same page"); 
 
-		
 //9. Fill details: Title, Name, Email, Password, Date of birth
-		
-		
-		
-		
-	
+		  String Gender= prop.getProperty("Gender");
+			if(Gender.equals("Male")) {
+				login.SelectMale();
+			}    
+			else {
+				login.SelectFeMale();
+			}
   }
-  }
+}
+  
