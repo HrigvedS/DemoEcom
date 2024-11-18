@@ -2,6 +2,7 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 WebDriver driver;
@@ -15,8 +16,10 @@ WebDriver driver;
 		By ViewDetailpage=By.xpath("//b[text()='Enter Account Information']");
 		By GenderMale=By.id("id_gender1");
 		By GenderFemale= By.id("id_gender2");
+		By NameFieldRegistration = By.xpath("//input[@id='name']");		
 		
-				
+		
+		
 		public LoginPage(WebDriver driver) {
 			this.driver= driver;
 		}
@@ -56,5 +59,13 @@ WebDriver driver;
 		public void SelectFeMale() {
 			driver.findElement(GenderFemale).click();
 		}
+		
+		public void InputNameRegistration(String Name) {
+			driver.findElement(NameFieldRegistration).sendKeys(Name);
+			
+		}
+		
+		
+		
 		
 	}
